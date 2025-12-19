@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -62,7 +63,21 @@ public class ba {
     return dp[s.length()];
 }
 
-
+    ArrayList<Integer> leaders(int arr[]) {
+        int n=arr.length;
+        ArrayList<Integer> list=new ArrayList<>();
+        int max=arr[n-1];
+        for(int i=n-2;i>=0;i--){
+            if(arr[i]>=max){
+                list.add(arr[i]);
+                max=arr[i];
+            }
+        }
+        list.add(arr[n-1]);
+        return list;
+        //16,17,4,3,5,2
+        //17,5,2
+    }
 
     public static void main(String[] args) {
         // System.out.println(new b().isSorted(new int[]{1,2,3,4,5,6},0));
@@ -71,6 +86,7 @@ public class ba {
         // System.out.println("Reversed"+Arrays.toString(arr));
         // System.out.println("GCD: "+new b().gcd1(18,18));
         // System.out.println(new ba().nthRoot(1,2));
-        System.out.println(new ba().wordBreak("aaaaaaa", List.of("aaaa","aaa")));
+        // System.out.println(new ba().wordBreak("aaaaaaa", List.of("aaaa","aaa")));
+        System.out.println(new ba().leaders(new int[]{16,17,4,3,5,2}));
     }
 }
